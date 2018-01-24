@@ -38,7 +38,7 @@ def main():
             logging.info('Downloading file: %s' % url)
             with open(folder_name + url.split('/')[-1], 'wb') as f:
                 f.write(requests.get(url).content)
-        except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema):
+        except requests.exceptions.RequestException:
             logging.info('Have some exceptions during loading file')
 
 
